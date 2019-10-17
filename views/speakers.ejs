@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Speakers</title>
+
+<% include global/head %>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- start header -->
+  <% include global/header %>
+  <!-- end header -->
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle">Speakers</h2>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+
+	<div class="container">
+
+    <div class="row">
+
+    <% if(locals.speakers){ %>
+
+      <% for (var i=0; i < speakers.length; i++){ %>
+        <% if((i+1)%4==0){ %> <!-- what if not 4 wide? -->
+          </div><div class="row">
+          <% } %>
+    <div class="col-xs-12 col-s-6 col-xl-2 col-md-3" align="center">
+      <div class="card pt-10">
+        <img src="images/speakers/<%- speakers[i].name.toLowerCase().replace(/ /g,"") %>.jpg" alt="<%- speakers[i].name %>" height="200">
+        <div class="contain">
+          <h4 class="membername"><%- speakers[i].name %></h4>
+          <p><button onclick="location.href='/speaker/<%- speakers[i].name.toLowerCase().replace(/ /g,"") %>'" class="button memberbutton">About</button></p>
+        </div>
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+
+  </div>
+
+				</div>
+	</section>
+  <% include global/footer %>
+
+</div>
+
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<% include global/foot %>
+</body>
+</html>

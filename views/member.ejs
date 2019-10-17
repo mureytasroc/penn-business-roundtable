@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title><%= member.name %></title>
+
+<% include global/head %>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- start header -->
+  <% include global/header %>
+  <!-- end header -->
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle"><%= member.name %></h2>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<div class="container">
+
+    <!-- Our Team starts -->
+
+<br>
+
+<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col" align="center">
+    <div class="card-member pt-10">
+      <img src="images/members/<%- member.name.toLowerCase().replace(/ /g,"") %>.jpg" alt="<%- member.name %>" height="200">
+      <div class="contain-member">
+        <h4 class="membername"><%- member.name %></h4>
+        <% if(member.role != ""){%><p class="membertitle"><%= member.role %></p><% } %>
+        <p class="memberschoolyr"><%= member.gradclass %></p>
+<br>
+        <p class="memberblurb"><%= member.blurb %></p>
+<br>
+<% if(member.linkedin != ""){ %>
+        <a target="_blank" href="<%- member.linkedin %>" title="LinkedIn" class="btn-sm btn-linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+        <br>
+        <% } %>
+        <p><button onclick="location.href='/members'" class="button memberbutton">Back</button></p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+<!-- /.row -->
+
+    <!-- Our team ends -->
+
+				</div>
+	</section>
+  <% include global/footer %>
+
+</div>
+
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<% include global/foot %>
+</body>
+</html>

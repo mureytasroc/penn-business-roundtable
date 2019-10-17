@@ -1,6 +1,1 @@
-if(document.title == "Penn Business Roundtable"){
-
-}
-else if(document.title == "About"){
-  
-}
+document.getElementById(document.title).className += " active"

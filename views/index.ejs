@@ -1,60 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8">
+<title>Penn Business Roundtable</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Penn Business Roundtable</title>
-
+<!-- css -->
 <% include global/head %>
 
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
 </head>
+<body>
 
-<body id="page-top">
 
-<% include global/header %>
+	<!-- start header -->
+  <% include global/header %>
+	<!-- end header -->
 
-  <header class="bg-primary text-white">
-    <div class="container text-center">
-      <h1>Welcome to Penn Business Roundtable</h1>
-      <p class="lead">blurb.</p>
-    </div>
-  </header>
+	<section id="banner">
 
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2>About</h2>
-          <p class="lead">Short about:</p>
-          <ul>
-            <li>Speakers</li>
-            <li>etc</li>
-            <li>etc</li>
-          </ul>
+	<!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="images/slides/1.jpg" alt="" />
+                <div class="flex-caption">
+                    <h3><!-- Image Title --></h3>
+					<p><!-- Image Description --></p>
+
+                </div>
+              </li>
+              <!--
+              <li>
+                <img src="images/slides/2.jpg" alt="" />
+                <div class="flex-caption">
+                    <h3>Solution</h3>
+					<p>Success depends on work</p>
+
+                </div>
+              </li>
+            -->
+            </ul>
         </div>
-      </div>
-    </div>
-  </section>
+	<!-- end slider -->
 
-  <section id="contact" class="bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2>Contact</h2><br>
-          <p class="lead">Other stuff</p>
+	</section>
+	<section id="call-to-action-2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-sm-9">
+					<h3>Penn Business Roundtable</h3>
+					<p>A forum where students can engage in dialogue with business leaders and alumni to better understand the inner workings of different industries and to explore career options.</p>
+				</div>
+				<div class="col-md-2 col-sm-3">
+					<a href="/about" class="btn btn-primary">Read More</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="content">
+
+
+	<div class="container">
+	    	<div class="row">
+			<div class="col-md-12">
+				<div class="aligncenter"><h2 class="aligncenter">Our Members Can:</h2></div>
+			</div>
+		</div>
+
+	 <div class="row">
+             <div class="col-sm-4 info-blocks">
+                 <i class="icon-info-blocks"><span class="iconify" data-icon="uil:telescope" data-inline="false"></span></i>
+                 <div class="info-blocks-in">
+                     <h3>Discover</h3>
+                     <p>Discover new industries or career paths previously unknown to them.</p>
+                 </div>
+             </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks"><span class="iconify" data-icon="mdi:map-legend" data-inline="false"></span></i>
+                <div class="info-blocks-in">
+                    <h3>Explore</h3>
+                    <p>Explore industries' inner workings.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks"><span class="iconify" data-icon="ps:road" data-inline="false"></span></i>
+                <div class="info-blocks-in">
+                    <h3>Career-Plan</h3>
+                    <p>Better plan for their professional careers.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+<div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-lightbulb-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Learn</h3>
+                    <p>Learn from <a href="/speakers">speakers</a> and from each other.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks"><span class="iconify" data-icon="octicon:comment-discussion" data-inline="false"></span></i>
+                <div class="info-blocks-in">
+                    <h3>Discuss</h3>
+                    <p>Discuss important topics in business and industry with <a href="/speakers">leaders</a> in their fields.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks"><span class="iconify" data-icon="ion:people-outline" data-inline="false"></span></i>
+                <div class="info-blocks-in">
+                    <h3>Socialize</h3>
+                    <p>Socialize through our many community <a href="/events">events</a>.</p>
+                </div>
+            </div>
+
+        </div>
+        <br>
+	</div>
+	</section>
+
+
 
 
 <% include global/footer %>
 
+</div>
+<!-- <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a> -->
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<% include global/foot %>
 </body>
-
 </html>

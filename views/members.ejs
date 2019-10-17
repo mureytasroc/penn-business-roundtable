@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Members</title>
+
+<% include global/head %>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- start header -->
+  <% include global/header %>
+  <!-- end header -->
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="pageTitle">Members</h2>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<div class="container">
+
+    <!-- Our Team starts -->
+
+<br>
+
+<div class="row">
+
+
+
+
+
+
+
+
+  <% if(locals.members){ %>
+
+    <% for (var i=0; i < members.length; i++){ %>
+      <% if(i%4==0 && i!= 0){ %> <!-- what if not 4 wide? -->
+        </div><div class="row">
+        <% } %>
+  <div class="col-xs-12 col-s-6 col-xl-2 col-md-3" align="center">
+    <div class="card pt-10">
+      <img src="images/members/<%- members[i].name.toLowerCase().replace(/ /g,"") %>.jpg" alt="<%- members[i].name %>" height="200">
+      <div class="contain">
+        <h4 class="membername"><%- members[i].name %></h4>
+        <% if(members[i].role != ""){%><p class="membertitle"><%= members[i].role %></p><% } %>
+        <p class="memberschoolyr"><%= members[i].gradclass %></p>
+        <p><button onclick="location.href='/member/<%- members[i].name.toLowerCase().replace(/ /g,"") %>'" class="button memberbutton">More</button></p>
+      </div>
+    </div>
+  </div>
+  <% } %>
+  <% } %>
+
+
+
+
+</div>
+<!-- /.row -->
+
+    <!-- Our team ends -->
+
+				</div>
+	</section>
+  <% include global/footer %>
+
+</div>
+
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<% include global/foot %>
+</body>
+</html>

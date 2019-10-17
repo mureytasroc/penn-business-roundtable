@@ -1,0 +1,262 @@
+.event-list {
+list-style: none;
+font-family: 'Lato', sans-serif;
+margin: 0px;
+padding: 0px;
+}
+.event-list > li {
+background-color: rgb(255, 255, 255);
+box-shadow: 0px 0px 5px rgb(51, 51, 51);
+box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+padding: 0px;
+margin: 0px 0px 20px;
+}
+.event-list > li > time {
+display: inline-block;
+width: 100%;
+color: rgb(255, 255, 255);
+background-color: rgb(140, 26, 17);
+padding: 5px;
+text-align: center;
+text-transform: uppercase;
+}
+.event-list > li:nth-child(even) > time {
+background-color: rgb(7, 32, 87);
+}
+.event-list > li > time > span {
+display: none;
+}
+.event-list > li > time > .day {
+display: block;
+font-size: 44pt;
+font-weight: 100;
+line-height: 1;
+}
+.event-list > li time > .month {
+display: block;
+font-size: 24pt;
+font-weight: 900;
+line-height: 1;
+}
+.event-list > li time > .year {
+display: block;
+font-size: 15pt;
+font-weight: 100;
+line-height: 1;
+}
+.event-list > li > img {
+width: 100%;
+}
+.event-list > li > .info {
+padding-top: 5px;
+text-align: center;
+}
+.event-list > li > .info > .title {
+font-size: 17pt;
+font-weight: 700;
+margin: 0px;
+}
+.event-list > li > .info > .desc {
+font-size: 13pt;
+font-weight: 300;
+margin: 0px;
+}
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
+display: table;
+list-style: none;
+margin: 10px 0px 0px;
+padding: 0px;
+width: 100%;
+text-align: center;
+}
+.event-list > li > .social > ul {
+margin: 0px;
+}
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+display: table-cell;
+cursor: pointer;
+color: rgb(30, 30, 30);
+font-size: 11pt;
+font-weight: 300;
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
+display: block;
+width: 100%;
+color: rgb(30, 30, 30);
+text-decoration: none;
+}
+.event-list > li > .social > ul > li {
+    padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+color: rgb(30, 30, 30);
+background-color: rgb(200, 200, 200);
+}
+
+
+@media (min-width: 768px) {
+.event-list > li {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 0px;
+}
+.event-list > li > time,
+.event-list > li > img  {
+  display: inline-block;
+}
+.event-list > li > time,
+.event-list > li > img {
+  width: 120px;
+  float: left;
+}
+.event-list > li > .info {
+  background-color: rgb(245, 245, 245);
+  overflow: hidden;
+}
+.event-list > li > time,
+.event-list > li > img {
+  width: 120px;
+  height: 120px;
+  padding: 0px;
+  margin: 0px;
+}
+.event-list > li > .info {
+  position: relative;
+  height: 120px;
+  text-align: left;
+  padding-right: 40px;
+}
+.event-list > li > .info > .title,
+.event-list > li > .info > .desc {
+  padding: 0px 10px;
+}
+.event-list > li > .info > ul {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+.event-list > li > .social {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 40px;
+}
+    .event-list > li > .social > ul {
+        border-left: 1px solid rgb(230, 230, 230);
+    }
+.event-list > li > .social > ul > li {
+  display: block;
+        padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+  display: block;
+  width: 40px;
+  padding: 10px 0px 9px;
+}
+
+
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+}
+
+.card-member {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+}
+
+/* Some left and right padding inside the container */
+.contain {
+  padding: 0 16px;
+}
+.contain-member{
+  padding-bottom:16px;
+}
+
+/* Clear floats */
+.contain::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.membertitle {
+  color: grey;
+  padding-bottom: 0px;
+  margin-bottom:0px
+}
+
+.membername {
+  margin-bottom:0px;
+}
+
+
+.pb-10 {
+  padding-bottom: 10px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+img {
+    image-orientation: from-image;
+}
+
+.memberbutton{
+  margin-top:10px;
+}
+
+.memberschoolyr{
+  padding-bottom: 0px;
+  margin-bottom:0px;
+  color:black;
+  font-size:12;
+}
+
+.padding-sm{
+  padding:30px !important;
+}
+
+.margin-md-vert{
+  margin-top:30px !important;
+  margin-bottom:30px !important;
+}
+
+.memberblurb{
+  background-color: #F5F5F5;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn-linkedin {
+	  background: #0E76A8;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #084461;
+	}
+	.btn-linkedin:link, .btn-linkedin:visited {
+	  color: #fff;
+	}
+	.btn-linkedin:active, .btn-linkedin:hover {
+	  background: #084461;
+	  color: #fff;
+	}
