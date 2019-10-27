@@ -43,7 +43,7 @@
         <img src="images/speakers/<%- speakers[i].name.toLowerCase().replace(/ /g,"") %>.jpg" alt="<%- speakers[i].name %>" height="200">
         <div class="contain">
           <h4 class="membername"><%- speakers[i].name %></h4>
-          <p><button onclick="location.href='/speaker/<%- speakers[i].name.toLowerCase().replace(/ /g,"") %>'" class="button memberbutton">About</button></p>
+          <p><button onclick="window.open('/speaker/<%- speakers[i].name.toLowerCase().replace(/ /g,"") %>','_blank')" class="button memberbutton">About</button></p>
         </div>
       </div>
     </div>

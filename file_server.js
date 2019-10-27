@@ -139,21 +139,21 @@ app.get('/speaker/:namec', function (request, response) {
 
 });
 
-app.get('/events', function (request, response) {
+app.get('/roundtables', function (request, response) {
 		const ip = requestIp.getClientIp(request);
 		var log = {
 			'Timestamp': moment().tz('America/New_York'),
 			'IP': ip,
 			'Verb': "GET",
-      'Route': "/events",
-			'Page': "Events"
+      'Route': "/roundtables",
+			'Page': "Roundtables"
     }
     console.log(log);
 		Admin.log(log, currentIP, function(){});
-		Admin.getEvents(function(events){
+		Admin.getRoundtables(function(roundtables){
 			response.status(200);
 	    response.setHeader('Content-Type', 'text/html')
-	    response.render('events', {events: events});
+	    response.render('roundtables', {roundtables: roundtables});
 		})
 
 });
