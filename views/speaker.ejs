@@ -52,13 +52,13 @@
       <div class="contain-member">
         <h4 class="membername"><%- speaker.name %></h4><br>
 
-        <p class="memberblurb"><%- speaker.blurb %></p>
+        <p class="memberblurb"><br><%- speaker.blurb %><br>&nbsp;</p>
 
-        <% if(speaker.link){ %><p><button onclick="window.open('<%- speaker.link %>','_blank')" class="button memberbutton">More</button><br></p><% } %>
+        <% if(speaker.link){ %><p><button onclick="window.open('<%- speaker.link %>','_blank')" class="button memberbutton">More</button></p><% } %>
 
-        <% if(speaker.linkedin){ %><a target="_blank" href="<%- speaker.linkedin %>" title="LinkedIn" class="btn-sm btn-linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a><% } %>
+        <% if(speaker.linkedin){ %><% if(!speaker.link){ %><p style="line-height: 4px;"><br></p><% } %><a target="_blank" href="<%- speaker.linkedin %>" title="LinkedIn" class="btn-sm btn-linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a><% } %>
         <br>
-        <!--<p><button onclick="location.href='/roundtables'" class="button memberbutton">Back</button></p>-->
+        <p><button onclick="window.history.back()" class="button memberbutton">Back</button></p>
       </div>
     </div>
   </div>

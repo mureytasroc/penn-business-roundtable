@@ -51,11 +51,10 @@
       <img src="images/members/<%- member.name.toLowerCase().replace(/ /g,"") %>.jpg" alt="<%- member.name %>" height="200">
       <div class="contain-member">
         <h4 class="membername"><%- member.name %></h4>
-        <% if(member.role != ""){%><p class="membertitle"><%= member.role %></p><% } %>
-        <p class="memberschoolyr"><%= member.gradclass %></p>
-<br>
-        <p class="memberblurb"><%= member.blurb %></p>
-<br>
+        <% if(member.role){%><p class="membertitle"><%= member.role %></p><% } %>
+        <% if(member.gradclass){%><p class="memberschoolyr"><%= member.gradclass %></p><% } %>
+        <% if(member.email){%><p class="memberschoolyr"><a href="mailto:<%= member.email %>"><%= member.email %></p></a><% } %>
+        <% if(member.blurb){ %><br><p class="memberblurb"><%= member.blurb %></p><% } %><br>
 <% if(member.linkedin != ""){ %>
         <a target="_blank" href="<%- member.linkedin %>" title="LinkedIn" class="btn-sm btn-linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
         <br>
