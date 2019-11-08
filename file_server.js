@@ -33,6 +33,8 @@ app.use('/speaker', favicon(__dirname + '/public/images/favicon.png'));
 
 app.use(express.urlencoded());
 
+var selfRequest = false; //this variable is used to pause logging if the server is making a self-request to keep Heroku awake
+
 
 
 var methodOverride = require('method-override');
@@ -55,15 +57,28 @@ app.listen(port, function () {
 
 app.get('/', function (request, response) {
 		const ip = requestIp.getClientIp(request);
-    var log = {
-      'Timestamp': moment().tz('America/New_York'),
-			'IP': ip,
-      'Verb': "GET",
-      'Route': "/",
-			'Page': "Home"
-    }
-    console.log(log);
-		Admin.log(log, currentIP, function(){});
+		if(!selfRequest){
+	    var log = {
+	      'Timestamp': moment().tz('America/New_York'),
+				'IP': ip,
+	      'Verb': "GET",
+	      'Route': "/",
+				'Page': "Home"
+	    }
+	    console.log(log);
+			Admin.log(log, currentIP, function(){});
+		}
+		else{
+			selfRequest=false;
+			var log = {
+	      'Timestamp': moment().tz('America/New_York'),
+				'IP': ip,
+	      'Verb': "GET",
+	      'Route': "/",
+				'Page': "Home (Self-Request)"
+	    }
+	    console.log(log);
+		}
 
 		response.render('index')
 
@@ -254,6 +269,7 @@ setInterval(function() {
 		ipInfo((err, cLoc) => {
 			if(!err){
 				currentIP=cLoc.ip;
+				selfRequest=true;
 				https.get("https://www.pennbusinessroundtable.com/");
 			}
 		});
