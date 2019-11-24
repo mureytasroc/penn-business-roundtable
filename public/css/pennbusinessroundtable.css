@@ -101,7 +101,7 @@ background-color: rgb(200, 200, 200);
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 .event-list > li {
   position: relative;
   display: block;
@@ -163,7 +163,7 @@ background-color: rgb(200, 200, 200);
   width: 40px;
   padding: 10px 0px 9px;
 }
-
+}
 
 
 /* Add some shadows to create a card effect */
@@ -174,15 +174,17 @@ background-color: rgb(200, 200, 200);
 
 .card-member {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 80%;
+  max-width: 250px;
 }
 
 /* Some left and right padding inside the container */
+
 .contain {
   padding: 0 16px;
 }
+
 .contain-member{
-  padding-bottom:16px;
+  padding: 0 16px;
 }
 
 /* Clear floats */
@@ -260,3 +262,7 @@ img {
 	  background: #084461;
 	  color: #fff;
 	}
+
+  .pbr-home-info-block{
+
+  }

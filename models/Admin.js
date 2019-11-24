@@ -12,11 +12,12 @@ const photosFP = __dirname +'/photos.csv'
 
 const csv=require('csvtojson')
 
-exports.log = function (logo, ipcurrent, callback) {
+exports.log = function (logo, callback) {
 	doc.useServiceAccountAuth(creds, function (err) {
     var timestamp=logo["Timestamp"]
     logo["Date"]=""+timestamp.format("MM/DD/YYYY");
     logo["Hour"]=""+timestamp.hour();
+		logo["Timestamp"]=""+timestamp.format()
 		ipInfo(logo["IP"], (err, cLoc) => {
         if(!err){
 					if(cLoc){
@@ -32,13 +33,7 @@ exports.log = function (logo, ipcurrent, callback) {
 						} else{logo["Organization"]="";}
 					}
 				}
-				if(!cLoc || logo["IP"] != ipcurrent){
-					logo["Timestamp"]=""+timestamp.format()
-					doc.addRow(1, logo, callback)
-				}
-				else{
-					callback();
-				}
+				doc.addRow(1, logo, callback)
 			});
 	});
 }

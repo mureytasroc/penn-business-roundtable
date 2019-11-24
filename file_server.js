@@ -6,8 +6,6 @@ const requestIp = require('request-ip');
 var moment = require('moment');
 moment().format();
 
-var currentIP=""
-
 
 
 var https = require("https");
@@ -33,7 +31,6 @@ app.use('/speaker', favicon(__dirname + '/public/images/favicon.png'));
 
 app.use(express.urlencoded());
 
-var selfRequest = false; //this variable is used to pause logging if the server is making a self-request to keep Heroku awake
 
 
 
@@ -57,7 +54,7 @@ app.listen(port, function () {
 
 app.get('/', function (request, response) {
 		const ip = requestIp.getClientIp(request);
-		if(!selfRequest){
+		if(!request.query.wakeup){
 	    var log = {
 	      'Timestamp': moment().tz('America/New_York'),
 				'IP': ip,
@@ -66,7 +63,7 @@ app.get('/', function (request, response) {
 				'Page': "Home"
 	    }
 	    console.log(log);
-			Admin.log(log, currentIP, function(){});
+			Admin.log(log, function(){});
 		}
 		else{
 			selfRequest=false;
@@ -95,7 +92,7 @@ app.get('/about', function (request, response) {
 			'Page': "About"
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){});
+		Admin.log(log, function(){});
 
 		response.status(200);
 		response.setHeader('Content-Type', 'text/html')
@@ -113,7 +110,7 @@ app.get('/speakers', function (request, response) {
 			'Page': "Speakers"
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){});
+		Admin.log(log, function(){});
 		Admin.getSpeakers(function(speakers){
 			response.status(200);
 	    response.setHeader('Content-Type', 'text/html')
@@ -132,7 +129,7 @@ app.get('/speaker/:namec', function (request, response) {
 			'Page': "Speaker: " + request.params.namec
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){})
+		Admin.log(log, function(){})
 		Admin.getSpeakers(function(speakers){
 			var foundSpeaker=null;
 			speakers.map(function(m){
@@ -164,7 +161,7 @@ app.get('/roundtables', function (request, response) {
 			'Page': "Roundtables"
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){});
+		Admin.log(log, function(){});
 		Admin.getRoundtables(function(roundtables){
 			response.status(200);
 	    response.setHeader('Content-Type', 'text/html')
@@ -183,7 +180,7 @@ app.get('/members', function (request, response) {
 			'Page': "Members"
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){});
+		Admin.log(log, function(){});
 		Admin.getMembers(function(members){
 			members.map(function(m){
 				var school = m.school.replace(/ /g,"").replace(/,/g,"");
@@ -214,7 +211,7 @@ app.get('/member/:namec', function (request, response) {
 			'Page': "Member: " + request.params.namec
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){})
+		Admin.log(log, function(){})
 		Admin.getMembers(function(members){
 			var foundMember=null;
 			members.map(function(m){
@@ -255,7 +252,7 @@ app.get('/contact', function (request, response) {
 			'Page': "Contact"
     }
     console.log(log);
-		Admin.log(log, currentIP, function(){});
+		Admin.log(log, function(){});
 
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
@@ -268,9 +265,7 @@ app.get('/contact', function (request, response) {
 setInterval(function() {
 		ipInfo((err, cLoc) => {
 			if(!err){
-				currentIP=cLoc.ip;
-				selfRequest=true;
-				https.get("https://www.pennbusinessroundtable.com/");
+				https.get("https://www.pennbusinessroundtable.com/?wakeup=true");
 			}
 		});
 }, 300000); // keeps Heroku website awake
