@@ -174,7 +174,7 @@ background-color: rgb(200, 200, 200);
 
 .card-member {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 250px;
+  max-width: 80%;
 }
 
 /* Some left and right padding inside the container */
