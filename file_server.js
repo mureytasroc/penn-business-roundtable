@@ -60,19 +60,20 @@ app.get('/', function (request, response) {
 				'IP': ip,
 	      'Verb': "GET",
 	      'Route': "/",
-				'Page': "Home"
+				'Page': "Home",
+				'URL' : (request.protocol + '://' + request.get('host') + request.originalUrl)
 	    }
 	    console.log(log);
 			Admin.log(log, function(){});
 		}
 		else{
-			selfRequest=false;
 			var log = {
 	      'Timestamp': moment().tz('America/New_York'),
 				'IP': ip,
 	      'Verb': "GET",
 	      'Route': "/",
-				'Page': "Home (Self-Request)"
+				'Page': "Home (Self-Request)",
+				'URL' : (request.protocol + '://' + request.get('host') + request.originalUrl)
 	    }
 	    console.log(log);
 		}
@@ -263,9 +264,5 @@ app.get('/contact', function (request, response) {
 
 
 setInterval(function() {
-		ipInfo((err, cLoc) => {
-			if(!err){
-				https.get("https://www.pennbusinessroundtable.com/?wakeup=true");
-			}
-		});
+			https.get("https://www.pennbusinessroundtable.com/?wakeup=true");
 }, 300000); // keeps Heroku website awake
