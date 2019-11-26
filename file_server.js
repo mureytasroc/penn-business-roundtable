@@ -61,7 +61,6 @@ app.get('/', function (request, response) {
 	      'Verb': "GET",
 	      'Route': "/",
 				'Page': "Home",
-				'URL' : (request.protocol + '://' + request.get('host') + request.originalUrl)
 	    }
 	    console.log(log);
 			Admin.log(log, function(){});
@@ -73,7 +72,6 @@ app.get('/', function (request, response) {
 	      'Verb': "GET",
 	      'Route': "/",
 				'Page': "Home (Self-Request)",
-				'URL' : (request.protocol + '://' + request.get('host') + request.originalUrl)
 	    }
 	    console.log(log);
 		}
