@@ -6,6 +6,8 @@ const requestIp = require('request-ip');
 var moment = require('moment');
 moment().format();
 
+BLACKLISTED_ORGS = ["Amazon", "Google"]
+
 
 
 var https = require("https");
@@ -54,31 +56,31 @@ app.listen(port, function () {
 
 app.get('/', function (request, response) {
 		const ip = requestIp.getClientIp(request);
-		if(!request.query.wakeup){
-	    var log = {
-	      'Timestamp': moment().tz('America/New_York'),
-				'IP': ip,
-	      'Verb': "GET",
-	      'Route': "/",
-				'Page': "Home",
-	    }
-	    console.log(log);
-			Admin.log(log, function(){});
-		}
-		else{
-			var log = {
-	      'Timestamp': moment().tz('America/New_York'),
-				'IP': ip,
-	      'Verb': "GET",
-	      'Route': "/",
-				'Page': "Home (Self-Request)",
-	    }
-	    console.log(log);
-		}
+		ipInfo(ip, (err, cLoc) => {
+			if(!request.query.wakeup && (err || !cloc || !BLACKLISTED_ORGS.reduce((t,c)=>t||c.includes(cloc.org),false))){
+		    var log = {
+		      'Timestamp': moment().tz('America/New_York'),
+					'IP': ip,
+		      'Verb': "GET",
+		      'Route': "/",
+					'Page': "Home",
+		    }
+		    console.log(log);
+				Admin.log(log, function(){});
+			}
+			else{
+				var log = {
+		      'Timestamp': moment().tz('America/New_York'),
+					'IP': ip,
+		      'Verb': "GET",
+		      'Route': "/",
+					'Page': "Home (Self-Request)",
+		    }
+		    console.log(log);
+			}
 
-		response.render('index')
-
-
+			response.render('index')
+		})
 });
 
 app.get('/about', function (request, response) {
