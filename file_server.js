@@ -6,7 +6,7 @@ const requestIp = require('request-ip');
 var moment = require('moment');
 moment().format();
 
-BLACKLISTED_ORGS = ["Amazon", "Google"]
+BLACKLISTED_ORGS = ["Amazon", "Google", "Microsoft", "Facebook"]
 
 
 
@@ -56,8 +56,8 @@ app.listen(port, function () {
 
 app.get('/', function (request, response) {
 		const ip = requestIp.getClientIp(request);
-		ipInfo(ip, (err, cLoc) => {
-			if(!request.query.wakeup && (err || !cloc || !BLACKLISTED_ORGS.reduce((t,c)=>t||c.includes(cloc.org),false))){
+		ipInfo(ip, (err, cloc) => {
+			if(!request.query.wakeup && (err || !cloc || !BLACKLISTED_ORGS.reduce((t,c)=>{t||c.includes(cloc.org)},false))){
 		    var log = {
 		      'Timestamp': moment().tz('America/New_York'),
 					'IP': ip,
