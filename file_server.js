@@ -98,7 +98,6 @@ app.get('/about', function (request, response) {
 		response.status(200);
 		response.setHeader('Content-Type', 'text/html')
 		response.render('about');
-
 });
 
 app.get('/speakers', function (request, response) {
@@ -258,7 +257,6 @@ app.get('/contact', function (request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render('contact');
-
 });
 
 
