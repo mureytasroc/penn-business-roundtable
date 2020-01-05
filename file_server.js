@@ -263,4 +263,4 @@ app.get('/contact', function (request, response) {
 
 setInterval(function() {
 			https.get("https://www.pennbusinessroundtable.com/?wakeup=true");
-}, 300000); // keeps Heroku website awake
+}, 1800000); // keeps Heroku website awake
