@@ -7,3 +7,6 @@ $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
 function speakerBack(){
   window.history.back()
 }
+
+
+setTimeout(function(){ $.jsdvPopup({}); }, 500)
