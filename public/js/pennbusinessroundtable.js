@@ -9,4 +9,4 @@ function speakerBack(){
 }
 
 
-// setTimeout(function(){ $.jsdvPopup({}); }, 500)
+setTimeout(function(){ $.jsdvPopup({}); }, 500)
