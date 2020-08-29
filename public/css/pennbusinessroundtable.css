@@ -277,7 +277,13 @@ img {
     background: #f3f3f3;
     border-radius: 7px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-    padding: 10px 35px 10px 10px;
+    padding: 10px 35px 10px 60px;
+  }
+
+  @media (max-width: 800px) {
+    .popup {
+      width: 330px;
+    }
   }
 
   .popup .close {
@@ -296,7 +302,11 @@ img {
   .popup img {
     float: left;
     margin-right: 10px;
+    margin-left: -50px;
+    margin-bottom: auto;
+    margin-top: auto;
     width: 50px;
+    vertical-align: middle;
   }
 
   .popup span {
@@ -304,4 +314,11 @@ img {
     vertical-align: middle;
     font-weight:50;
     font-size: 12px;
+    padding-left: 25px;
+  }
+
+  @media (max-width: 800px) {
+    .popup span {
+      padding-left: 15px;
+    }
   }

@@ -30,7 +30,7 @@
         */
 
         function show(elem) {
-            elem.css({'bottom': -1 * elem.outerHeight(), "display": 'block'});
+            elem.css({'bottom': -1 * elem.outerHeight(), "display": 'flex'});
             elem.animate({'bottom': 10}, "fast");
         }
 
