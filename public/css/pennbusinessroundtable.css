@@ -278,6 +278,7 @@ img {
     border-radius: 7px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
     padding: 10px 35px 10px 60px;
+    align-items: center;
   }
 
   @media (max-width: 800px) {
@@ -303,15 +304,12 @@ img {
     float: left;
     margin-right: 10px;
     margin-left: -50px;
-    margin-bottom: auto;
-    margin-top: auto;
-    width: 50px;
-    vertical-align: middle;
+    width: 75px;
+    height: auto;
   }
 
   .popup span {
     height:100%;
-    vertical-align: middle;
     font-weight:50;
     font-size: 12px;
     padding-left: 25px;
