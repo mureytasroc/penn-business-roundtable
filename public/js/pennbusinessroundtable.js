@@ -8,5 +8,5 @@ function speakerBack(){
   window.history.back()
 }
 
-
-setTimeout(function(){ $.jsdvPopup({}); }, 500)
+// Uncomment the below line to enable the recruiting popup
+// setTimeout(function(){ $.jsdvPopup({}); }, 500)
