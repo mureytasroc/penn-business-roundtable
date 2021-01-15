@@ -9,4 +9,4 @@ function speakerBack(){
 }
 
 // Uncomment the below line to enable the recruiting popup
-// setTimeout(function(){ $.jsdvPopup({}); }, 500)
+setTimeout(function(){ $.jsdvPopup({}); }, 500)
